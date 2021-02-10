@@ -1,0 +1,16 @@
+{
+    "name": "default",
+    "type": "mssql",
+    "host": "needlocally.database.windows.net",
+    "username": "need-db-user",
+    "password": "SilverGoldPen555%",
+    "database": "needlocally",
+    "connectionTimeout": 75000,
+    "entities": ["build/entity/*.js"],
+        "options": {
+          "encrypt" : true,
+          "enableArithAbort": true
+        },
+    "logging": false,
+    "synchronize": false
+  }
