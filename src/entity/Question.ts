@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn, OneToOne } from "typeorm";
-import { InputType } from "./InputType";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, OneToOne } from "typeorm";
+import { QuestionDataType } from "./QuestionDataType";
 import { ListItem } from "./ListItem";
 import { Need } from "./Need";
 
@@ -13,14 +13,14 @@ export class Question {
     name: string;
 
     @Column({ nullable: true })
-    label: string;
+    questionText: string;
 
-    @OneToOne(() => InputType, inputType => inputType.id)
-    @JoinColumn()
-    inputType: InputType;
+    //@OneToOne(() => QuestionDataType, questionDataType => questionDataType.id)
+    @Column()
+    questionDataType: number;
 
     @Column()
-    isRequired: boolean;
+    required: boolean;
 
     @Column()
     displayOrder: number;

@@ -1,15 +1,14 @@
 import * as express from "express";
 import { Router, Request, Response } from "express";
 import { getRepository } from "typeorm";
-import { ListItem } from "../entity/ListItem";
 import { Question } from '../entity/Question';
 
 const router: Router = express.Router();
 
 async function find(req: Request, res: Response) {
-  const needs = await getRepository(Question).find();
-  console.log(needs);
-  res.json(needs);
+  const questions = await getRepository(Question).find();
+  console.log(questions);
+  res.json(questions);
 }
 
 async function findOne(req: Request, res: Response) {
@@ -58,9 +57,11 @@ async function update(req: Request, res: Response) {
 
 router.get('/', find);
 router.get('/:id', findOne);
-router.post('/save', save)
-router.delete('/:id', remove)
-router.put('/update/:id', update)
 
+router.post('/save', save)
+
+router.delete('/:id', remove)
+
+router.put('/update/:id', update)
 
 module.exports = router

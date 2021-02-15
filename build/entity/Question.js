@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Question = void 0;
 const typeorm_1 = require("typeorm");
-const InputType_1 = require("./InputType");
 const ListItem_1 = require("./ListItem");
 const Need_1 = require("./Need");
 let Question = class Question {
@@ -27,16 +26,15 @@ __decorate([
 __decorate([
     typeorm_1.Column({ nullable: true }),
     __metadata("design:type", String)
-], Question.prototype, "label", void 0);
+], Question.prototype, "questionText", void 0);
 __decorate([
-    typeorm_1.OneToOne(() => InputType_1.InputType, inputType => inputType.id),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", InputType_1.InputType)
-], Question.prototype, "inputType", void 0);
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Question.prototype, "questionDataType", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Boolean)
-], Question.prototype, "isRequired", void 0);
+], Question.prototype, "required", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)

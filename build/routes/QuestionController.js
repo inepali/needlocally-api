@@ -5,9 +5,9 @@ const typeorm_1 = require("typeorm");
 const Question_1 = require("../entity/Question");
 const router = express.Router();
 async function find(req, res) {
-    const needs = await typeorm_1.getRepository(Question_1.Question).find();
-    console.log(needs);
-    res.json(needs);
+    const questions = await typeorm_1.getRepository(Question_1.Question).find();
+    console.log(questions);
+    res.json(questions);
 }
 async function findOne(req, res) {
     try {

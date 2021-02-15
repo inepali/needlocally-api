@@ -14,7 +14,7 @@ const typeorm_1 = require("typeorm");
 const Question_1 = require("./Question");
 let ListItem = class ListItem {
     constructor() {
-        this.isActive = false;
+        this.active = false;
     }
 };
 __decorate([
@@ -28,7 +28,7 @@ __decorate([
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Boolean)
-], ListItem.prototype, "isActive", void 0);
+], ListItem.prototype, "active", void 0);
 __decorate([
     typeorm_1.ManyToOne(() => Question_1.Question, question => question.listItems),
     __metadata("design:type", Question_1.Question)

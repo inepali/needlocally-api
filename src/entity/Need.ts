@@ -20,5 +20,5 @@ export class Need {
     questions: Question[];
 
     @Column()
-    isActive: boolean;
+    active: boolean;
 }

@@ -21,7 +21,8 @@ async function findOne(req, res) {
 }
 async function save(req, res) {
     try {
-        //console.log(req.body);
+        console.log(req.body);
+        console.log("save called in need controller");
         const need = await typeorm_1.getRepository(Need_1.Need).create(req.body);
         console.log(need);
         const results = await typeorm_1.getRepository(Need_1.Need).save(need);
@@ -60,8 +61,25 @@ async function tree(req, res) {
         res.status(400).send({ status: 400, message: error });
     }
 }
+async function questions(req, res) {
+    try {
+        console.log(req.params.id);
+        const result = await typeorm_1.getRepository(Need_1.Need)
+            .createQueryBuilder("need")
+            .leftJoinAndSelect("need.questions", "question")
+            .leftJoinAndSelect("question.listItems", "listItem")
+            .where("need.id = :id", { id: req.params.id })
+            .getOne();
+        console.log(result);
+        res.json(result.questions);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(400).send({ status: 400, message: error });
+    }
+}
 router.get('/', find);
-9;
+router.get('/questions/:id', questions);
 router.get('/tree/:id', tree);
 router.get('/:id', findOne);
 router.post('/save', save);

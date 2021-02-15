@@ -10,6 +10,6 @@ export class QuestionDataType {
     type: string;
 
     @Column()
-    isActive: boolean;
+    active: boolean;
 
 }

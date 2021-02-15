@@ -12,7 +12,7 @@ export class ListItem {
     value: string;
 
     @Column()
-    isActive: boolean = false;
+    active: boolean = false;
 
     @ManyToOne(() => Question, question => question.listItems)
     question: Question;

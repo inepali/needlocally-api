@@ -37,7 +37,7 @@ __decorate([
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Boolean)
-], Need.prototype, "isActive", void 0);
+], Need.prototype, "active", void 0);
 Need = __decorate([
     typeorm_1.Entity("needs")
 ], Need);
